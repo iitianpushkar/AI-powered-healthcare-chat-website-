@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Modal, Button } from 'react-bootstrap';
 import doctors from './DoctorsList'; // Import the list of doctors
+import './App.css'; // Import custom CSS for styling
 
 function App() {
   const [show, setShow] = useState(false);
@@ -58,21 +59,26 @@ function App() {
 
   return (
     <>
-      <div className="container mt-4">
+      <header className="text-center py-5 bg-primary text-white">
+        <h1>AI Doctor Consultation</h1>
+        <p className="lead">Consult with our expert AI doctors right from your home</p>
+      </header>
+
+      <div className="container mt-5">
         <div className="row">
           {doctors.map((doctor, index) => (
             <div className="col-md-4" key={index}>
-              <div className="card mb-4" style={{ width: '18rem' }}>
+              <div className="card doctor-card mb-4 shadow-sm">
                 <img
                   src={doctor.imageUrl}
-                  className="card-img-top"
+                  className="card-img-top rounded-top"
                   alt={doctor.name}
                 />
                 <div className="card-body">
-                  <h5 className="card-title">{doctor.name}</h5>
+                  <h5 className="card-title text-primary">{doctor.name}</h5>
                   <p className="card-text">{doctor.specialization}</p>
                   <Button
-                    variant="primary"
+                    variant="outline-primary"
                     onClick={() => handleShow(doctor.name)}
                   >
                     Consult
@@ -86,14 +92,14 @@ function App() {
 
       {/* Modal */}
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
+        <Modal.Header closeButton className="bg-primary text-white">
           <Modal.Title>Chat with {selectedDoctor}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div style={{ maxHeight: '300px', overflowY: 'auto' }}>
+          <div className="chat-container">
             {/* Chat messages go here */}
             {conversation.map((entry, index) => (
-              <div key={index} style={{ marginBottom: '10px' }}>
+              <div key={index} className={`chat-bubble ${entry.type}`}>
                 <strong>{entry.type === 'user' ? 'You: ' : 'Doctor: '}</strong>
                 <span>{entry.text}</span>
               </div>
