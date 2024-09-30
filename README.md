@@ -48,3 +48,4 @@ Run the Docker container:
 docker run -v "${PWD}/data:/app/data" -p 8000:8000 raggem
 ```
 This will start the RAG-based question-answering system on `http://localhost:5173`.
+You can find demo video link here: `https://x.com/0xPushkar/status/1840724930893398152`
