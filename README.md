@@ -1,6 +1,6 @@
 # AI Healthcare Chat Website
 
-This repository contains an AI-powered healthcare chat system that allows users to interact with different specialized doctors. The system uses a React frontend, a Node.js backend, and a RAG (Retrieval-Augmented Generation) model pipeline powered by the Gemini API for question-answering.
+This repository contains an AI-powered healthcare chat system that allows users to interact with different specialized doctors. The system uses a React frontend, a Node.js backend, and a RAG (Retrieval-Augmented Generation) model pipeline powered by the Gemini API for question-answering leveraging Pathway framework for data processing. 
 
 ## Setup Instructions
 
